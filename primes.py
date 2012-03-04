@@ -23,4 +23,5 @@ for i in range(2, 10000):
 
 stop = datetime.now()
 
+assert(len(primes) == 1231)
 print(stop - start)
