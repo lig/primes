@@ -1,13 +1,20 @@
-primes = (0..10000).to_a
+primes = Array.new
 
-t = Time.now.to_i
+t = Time.now.to_f
 
 for i in (2..10000)
+  is_prime = true
+
   for j in (2..(i-1))
-    if (primes[i] != 0) and (primes[i] % j == 0) then
-      primes[i] = 0;
+    if i % j == 0 then
+      is_prime = false
+      break
     end
+  end
+
+  if is_prime == true then
+    primes.push(i)
   end
 end
 
-print (Time.now.to_i - t).to_s
+print (Time.now.to_f - t).to_s
