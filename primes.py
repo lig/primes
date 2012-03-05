@@ -1,23 +1,27 @@
-from collections import deque
 from datetime import datetime
+from math import sqrt
 
 
 start = datetime.now()
 
-primes = deque([0, 1])
+primes = [0, 1]
 
 for i in range(2, 10000):
-    is_prime = True
+    k = sqrt(i)
 
-    for j in range(2, (i - 1)):
+    for j in primes[2:]:
 
-        if i % j == 0:
-            is_prime = False
+        if j > k:
             break
 
-    if is_prime:
+        if i % j == 0:
+            i = None
+            break
+
+    if i:
         primes.append(i)
 
 stop = datetime.now()
 
+assert(len(primes) == 1231)
 print(stop - start)
