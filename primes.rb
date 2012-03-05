@@ -1,21 +1,11 @@
-primes = Array.new
-
+primes = []
 t = Time.now.to_f
 
-for i in (2..10000)
+(2..10000).each() { |i|
   k = Math.sqrt(i).to_i()
-
-  for j in (2..(i-1))
-
-    break if j > k
-
-    if i % j == 0 then
-      i = nil
-      break
-    end
-  end
-
-  primes.push(i) if i
-end
+  j = 2
+  until j > k || (i % j).zero? do  j += 1 end
+  primes.push(i) if j > k
+}
 
 print (Time.now.to_f - t).to_s
