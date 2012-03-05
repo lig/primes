@@ -15,9 +15,7 @@ for i in (2..10000)
     end
   end
 
-  if i then
-    primes.push(i)
-  end
+  primes.push(i) if i
 end
 
 print (Time.now.to_f - t).to_s
